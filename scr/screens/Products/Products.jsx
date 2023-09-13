@@ -1,11 +1,11 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import allProducts from '../../data/products'
 import { Header, SearchImput } from "../../Components";
 import styles from './ProductsStyles'
 
 
-const Products = ({ category }) => {
+const Products = ({ category, setProductSelected}) => {
     const [arrProducts, setArrProducts] = useState([]);
     const [keywords, setKeywords] = useState("");
   
@@ -28,9 +28,13 @@ const Products = ({ category }) => {
           <FlatList
             data={arrProducts}
             renderItem={({ item }) => (
-              <View style ={styles.productList}>
+              <TouchableOpacity style ={styles.productList} onPress={() => setProductSelected(item)}>
                 <Text style ={styles.productText}>{item.title}</Text>
-              </View>
+                <Image style={styles.productImage}
+                source={{
+                  uri : item.thumbnail
+                  }}/>
+              </TouchableOpacity>
             )}
             keyExtractor={item => item.id}
           />

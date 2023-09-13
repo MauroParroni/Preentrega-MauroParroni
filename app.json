@@ -3,7 +3,7 @@
     "name": "EcommerceApp",
     "slug": "EcommerceApp",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "Landscape",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

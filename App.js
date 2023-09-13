@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { Home, Products } from "./scr/screens";
+import { Home, Products, Details } from "./scr/screens";
 import { useFonts } from "expo-font";
 import fonts from "./scr/global/fonts";
 
 export default function App() {
     const[fontLoaded] = useFonts(fonts)
-
   const [categorySelected, setCategorySelected] = useState("");
+  const [productSelected, setProductSelected] = useState();
+
 if (!fontLoaded){
   return null;
 }
-  return categorySelected ? (
-    <Products category={categorySelected} />
+
+  return productSelected ? (
+  <Details product={productSelected} />
+  ) :  categorySelected ? (
+    <Products category={categorySelected} setProductSelected ={setProductSelected} />
   ) : (
     <Home setCategorySelected={setCategorySelected} />
   );

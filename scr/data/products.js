@@ -530,8 +530,8 @@ export default [
       "stock": 30,
       "brand": "Johnnie Walker",
       "category": "Whisky",
-      "thumbnail": "johnniewalker.jpg",
-      "images": ["johnniewalker1.jpg", "johnniewalker2.jpg"]
+      "thumbnail": "https://i0.wp.com/nlliquor.com/wp-content/uploads/2020/05/1562_m_v2.jpg?fit=960%2C1280&ssl=1",
+      "images": ["https://i0.wp.com/nlliquor.com/wp-content/uploads/2020/05/1562_m_v2.jpg?fit=960%2C1280&ssl=1", "johnniewalker2.jpg"]
   },
   {
       "id": 42,

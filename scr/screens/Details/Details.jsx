@@ -11,7 +11,7 @@ const Details = ({product}) => {
       <Image style={styles.image} source={product.images[0]}/>
       <Text style={styles.title}>{product.title}</Text>
       <Text>{product.description}</Text>
-      <Text style ={styles.price}>{`${product.price}`}</Text>
+      <Text style ={styles.price}>${`${product.price}`}</Text>
     </View>
     </>
   )

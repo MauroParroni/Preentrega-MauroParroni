@@ -5,18 +5,18 @@ import categories from "../../data/categories";
 import { CategoryItem } from "./components";
 import styles from "./HomeStyles";
 
-const Home = ({ setCategorySelected }) => {
+const Home = ({ navigation }) => {
   return (
     <>
       <View style={styles.container}>
-        <Header title={"Categories"} />
+        <Header title={"Categorias"} />
         <FlatList
           data={categories}
           keyExtractor={(category) => category}
           renderItem={({ item }) => (
             <CategoryItem
               category={item}
-              setCategorySelected={setCategorySelected}
+              navigation={navigation}
             />
           )}
         />

@@ -5,9 +5,10 @@ import { Header, SearchImput } from "../../Components";
 import styles from './ProductsStyles'
 
 
-const Products = ({ category, setProductSelected}) => {
+const Products = ({ route, navigation}) => {
     const [arrProducts, setArrProducts] = useState([]);
     const [keywords, setKeywords] = useState("");
+    const {category} = route.params
   
     useEffect(() => {
       if (category) {
@@ -28,7 +29,7 @@ const Products = ({ category, setProductSelected}) => {
           <FlatList
             data={arrProducts}
             renderItem={({ item }) => (
-              <TouchableOpacity style ={styles.productList} onPress={() => setProductSelected(item)}>
+              <TouchableOpacity style ={styles.productList} onPress={() => navigation.navigate('Details', {product: item})}>
                 <Text style ={styles.productText}>{item.title}</Text>
                 <Image style={styles.productImage}
                 source={{

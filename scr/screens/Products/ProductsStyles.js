@@ -11,23 +11,22 @@ export default styles = StyleSheet.create({
         flex: 1,
         marginTop:15 ,
     },
-    productList:{
+    productList: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop:15 ,
+        marginTop: 15,
         borderRadius: 5,
         backgroundColor: colors.secondary,
-        shadowOffset: {height: 5, width:3},
+        shadowOffset: { height: 5, width: 3 },
     },
-    productText:{
-        padding:5,
+    productText: {
+        flex: 1, 
+        padding: 5,
         fontSize: 25,
     },
     productImage: {
         borderRadius: 5,
-        marginHorizontal:93,
-        width: 60,
-        height: 80,
-
-    }
+        width: '10%',
+        height: '100%',
+    },
 })

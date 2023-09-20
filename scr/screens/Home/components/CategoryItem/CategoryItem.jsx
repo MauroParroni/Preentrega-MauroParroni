@@ -4,13 +4,9 @@ import {Card} from '../../../../Components'
 import styles from './CategoryItemStyles'
 
 
-const CategoryItem = ({category, setCategorySelected}) => {
-  const {height, width} = useWindowDimensions()
-  useEffect(() => {
-    console.log(height, width)
-  },[])
+const CategoryItem = ({category, navigation}) => {
   return (
-    <Pressable onPress={() => setCategorySelected(category)}>
+    <Pressable onPress={() => navigation.navigate('Productos',{category})}>
      <Card style ={styles.cardContainer}>
      <Text style ={styles.text}>{category}</Text>
         </Card>   

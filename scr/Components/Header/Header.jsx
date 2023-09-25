@@ -9,7 +9,6 @@ const Header = ({ title }) => {
   const handleGoBack = () => {
     navigation.goBack();
   };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleGoBack}>

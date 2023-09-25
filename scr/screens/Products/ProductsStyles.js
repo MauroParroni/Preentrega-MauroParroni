@@ -12,6 +12,7 @@ export default styles = StyleSheet.create({
         marginTop:15 ,
     },
     productList: {
+        height: 190,
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 15,
@@ -21,12 +22,18 @@ export default styles = StyleSheet.create({
     },
     productText: {
         flex: 1, 
-        padding: 5,
-        fontSize: 25,
+        paddingTop: 15,
+        fontSize: 20,
+        textAlign: 'center',
+        fontFamily: 'Inter',
+
     },
     productImage: {
-        borderRadius: 5,
-        width: '10%',
+        width: '25%',
         height: '100%',
     },
+    productdesc:{
+        flex: 1,
+        
+    }
 })

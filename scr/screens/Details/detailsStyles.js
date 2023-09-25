@@ -9,12 +9,19 @@ export default styles = StyleSheet.create({
             backgroundColor: colors.quaternary,
             paddingBottom: 50,
         },
+        descriptionContainer:{
+          alignItems: "center",
+            width: '100%',
+            margin: 30,
+        },
         title:{
             fontSize: 30,
-            fontFamily: 'Kalam',
+            fontFamily: 'Inter',
+            textAlign: 'center',
         },
         price:{
             fontSize: 25,
+            padding: 10,
         },
         wrapper: { },
         slide: {
@@ -37,6 +44,19 @@ export default styles = StyleSheet.create({
           buyButtonText: {
             color: 'white',
             fontSize: 16,
+            
           },
+          desc:{
+            fontSize: 18,
+            fontFamily: 'Inter',
+            textAlign: 'center',
+          },
+          text:{
+            textDecorationLine: 'underline',
+            fontSize: 24,
+            fontFamily: 'Inter',
+            textAlign: 'center',
+            padding: 10,
+          }
 
 })

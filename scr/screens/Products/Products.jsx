@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import allProducts from '../../data/products'
 import { Header, SearchImput } from "../../Components";
 import styles from './ProductsStyles'
+import { Button } from "react-native";
+import { colors } from "../../Constants/Colors";
 
 
 const Products = ({ route, navigation}) => {
@@ -29,13 +31,17 @@ const Products = ({ route, navigation}) => {
           <FlatList
             data={arrProducts}
             renderItem={({ item }) => (
-              <TouchableOpacity style ={styles.productList} onPress={() => navigation.navigate('Details', {product: item})}>
-                <Text style ={styles.productText}>{item.title}</Text>
-                <Image style={styles.productImage}
+              <View style ={styles.productList} >
+                 <Image style={styles.productImage}
                 source={{
                   uri : item.thumbnail
                   }}/>
-              </TouchableOpacity>
+                  <View style ={styles.productdesc}>
+                <Text style ={styles.productText}>{item.title}</Text>
+                <Text style ={styles.productText}>Precio: {item.price}$</Text>
+                <Button title="Ver Producto" color={colors.primary} onPress={() => navigation.navigate('Details', {product: item})}/>
+                </View>
+              </View>
             )}
             keyExtractor={item => item.id}
           />

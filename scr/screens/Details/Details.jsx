@@ -3,15 +3,19 @@ import React from "react";
 import { Header } from "../../Components";
 import styles from "./detailsStyles";
 import Swiper from "react-native-swiper";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { increment } from "../../features/counter/counterSlice";
 
 const Details = ({ route }) => {
-  const counter = useSelector(state => state.counter.value)
+  const [add, setAdd] = useState(0);
+  const counter = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   const { product } = route.params;
 
-  function handleBuyPress(){
+  /*function handleBuyPress(){
     console.log('en algun futuro va a hacer algo ')
-  }
+  }*/
   return (
     <>
       <Header title="Detalles"/>
@@ -28,10 +32,9 @@ const Details = ({ route }) => {
         <Text style={styles.text}>Descripcion: </Text>
         <Text style={styles.desc}>{product.description}</Text>
         <Text style={styles.price}>${`${product.price}`}</Text>
-        <TouchableOpacity style={styles.buyButton} onPress={handleBuyPress}>
+        <TouchableOpacity style={styles.buyButton} onPress={() => dispatch(increment())}>
           <Text style={styles.buyButtonText}>Comprar</Text>
         </TouchableOpacity>
-            <Text style={styles.title}>{counter}</Text>
             </View>
       </View>
     </>

@@ -6,6 +6,12 @@ export default styles = StyleSheet.create({
             flex: 1,
             width: '100%',
             backgroundColor: colors.quaternary,
-        }
+        },
+        confirmButton: {
+            marginTop: 20,
+            backgroundColor: colors.primary,
+            padding: 10,
+            borderRadius: 5,
+          },
 
 })

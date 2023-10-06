@@ -2,18 +2,24 @@ import { FlatList, Pressable, Text, View } from "react-native";
 import React from "react";
 import styles from "./CartStyles";
 import { Header } from "../../Components";
-import cart from "../../data/cart";
 import CartItem from "./components/CartItem";
 import { useSelector } from "react-redux";
+import { usePostOrderMutation } from "../../services/shopApi";
 
 const Cart = () => {
-  const counter = useSelector((state) => state.counter.value);
-  const renderItem = () => <CartItem/>
+    const cart = useSelector( state => state.cart.items)
+    const total = useSelector(state => state.cart.total)
+    const [triggerPost, result] = usePostOrderMutation()
+
+  const renderItem = ({item}) => <CartItem item ={item}/>
   
+  const confirmCart =() =>{
+    triggerPost({total, cart, user: "loggedUser"})
+  }
   return (
     <View style={styles.container}>
       <Header title={"Carrito"} />
-      <Text>Cantidad de elementos añadidos al carrito: {counter}</Text>
+
       <View>
         <FlatList 
         data={cart}
@@ -21,12 +27,13 @@ const Cart = () => {
         renderItem={renderItem}/>
       </View>
       <View>
-        <Pressable>
+        <Pressable style = {styles.confirmButton} onPress={confirmCart}>
           <Text>Confirmar</Text>
+          </Pressable>
           <View>
-            <Text>{`Total $100`}</Text>
+            <Text>{`Total $${total}`}</Text>
           </View>
-        </Pressable>
+        
       </View>
     </View>
   );

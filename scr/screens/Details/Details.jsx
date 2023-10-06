@@ -5,17 +5,16 @@ import styles from "./detailsStyles";
 import Swiper from "react-native-swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { increment } from "../../features/counter/counterSlice";
+import { addItem } from "../../features/cart/cartSlice";
 
 const Details = ({ route }) => {
-  const [add, setAdd] = useState(0);
-  const counter = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   const { product } = route.params;
 
-  /*function handleBuyPress(){
-    console.log('en algun futuro va a hacer algo ')
-  }*/
+  
+  const handleBuyPress = () => {
+    dispatch(addItem({...product, quantity: 1}))
+  }
   return (
     <>
       <Header title="Detalles"/>
@@ -32,7 +31,7 @@ const Details = ({ route }) => {
         <Text style={styles.text}>Descripcion: </Text>
         <Text style={styles.desc}>{product.description}</Text>
         <Text style={styles.price}>${`${product.price}`}</Text>
-        <TouchableOpacity style={styles.buyButton} onPress={() => dispatch(increment())}>
+        <TouchableOpacity style={styles.buyButton} onPress={() =>handleBuyPress() }>
           <Text style={styles.buyButtonText}>Comprar</Text>
         </TouchableOpacity>
             </View>

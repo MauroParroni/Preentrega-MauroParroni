@@ -35,5 +35,9 @@ export default styles = StyleSheet.create({
     productdesc:{
         flex: 1,
         
-    }
+    },
+    lottie: {
+        width: 100,
+        height: 100,
+      },
 })

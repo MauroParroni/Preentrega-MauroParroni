@@ -9,7 +9,7 @@ function CartNavigator(){
                 <Stack.Navigator screenOptions={() =>({
                     headerShown: false,
                 })}>
-                    <Stack.Screen name="Cart" component={Cart}/>
+                    <Stack.Screen name="CartScreen" component={Cart}/>
                 </Stack.Navigator>
     )
 } 

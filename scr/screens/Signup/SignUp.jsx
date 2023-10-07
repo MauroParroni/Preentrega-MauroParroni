@@ -4,6 +4,8 @@ import styles from './signUpStyles'
 import { useState } from 'react'
 import { useSignUpMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
+import {setUser} from '../../features/auth/authSlice'
+
 
 const SignUp = () => {
     const [email, setEmail] = useState('')
@@ -18,6 +20,10 @@ const SignUp = () => {
             email, password
         })
         console.log(result)
+        if (result.isSuccess){      
+                dispatch(setUser(result))          
+            
+        }
     }
   return (
     <View style ={styles.container}>
@@ -28,7 +34,7 @@ const SignUp = () => {
             <TextInput style ={styles.inputEmail} value={email} onChangeText={setEmail}/>
             <TextInput style ={styles.inputEmail} value={password} onChangeText={setPassword}/>
             <TextInput style ={styles.inputEmail} value={confirmPass} onChangeText={setConfirmPass}/>
-            <Pressable style ={styles.loginButton} onPress={onSubmit}>
+            <Pressable style ={styles.loginButton} onPress={onSubmit} >
                 <Text>Sign up</Text>
             </Pressable>
             <Text>Already have an account?</Text>

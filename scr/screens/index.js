@@ -5,4 +5,6 @@ import Cart from "./Cart/Cart";
 import Orders from "./Orders/Orders";
 import SignUp from "./Signup/SignUp";
 import Login from "./Login/Login";
-export {Home, Products, Details,Cart,Orders, Login, SignUp}
+import Profile from "./Profile/Profile";
+import LocationScreen from "./Location/Location";
+export {Home, Products, Details,Cart,Orders, Login, SignUp,Profile, LocationScreen}

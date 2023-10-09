@@ -8,10 +8,13 @@ export default styles = StyleSheet.create({
             backgroundColor: colors.quaternary,
         },
         confirmButton: {
-            marginTop: 20,
             backgroundColor: colors.primary,
-            padding: 10,
+            width: '30%',
+            height: 30,
+            marginVertical: 10,
             borderRadius: 5,
+            alignItems: "center",
+            justifyContent: "center",
           },
 
 })

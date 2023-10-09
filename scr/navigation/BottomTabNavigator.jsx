@@ -5,6 +5,7 @@ import { StyleSheet } from "react-native";
 import { colors } from "../Constants/Colors"; 
 import Feather from '@expo/vector-icons/Feather'
 import OrdersNavigator from "./OrdersNavigator";
+import ProfileNavigator from "./ProfileNavigator";
 
 
 const BottomTab = createBottomTabNavigator();
@@ -28,6 +29,11 @@ function BottomTabNavigator() {
          <BottomTab.Screen name = 'Orders' component={OrdersNavigator} options={{
             tabBarIcon: ({focused}) => (
                 <Feather name='list' size={24} color ={focused ? colors.primary : colors.quaternary}/>
+            )
+        }}/>
+         <BottomTab.Screen name = 'Perfil' component={ProfileNavigator} options={{
+            tabBarIcon: ({focused}) => (
+                <Feather name='user' size={24} color ={focused ? colors.primary : colors.quaternary}/>
             )
         }}/>
     </BottomTab.Navigator>

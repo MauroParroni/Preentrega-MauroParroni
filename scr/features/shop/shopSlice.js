@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import dataCategories from '../../data/categories'
-import dataProducts from '../../data/products'
+
 
 const initialState = {
-    categories: dataCategories,
-    products : dataProducts,
+    categories: null,
+    products : null,
     productsFilteredByCategory: [],
     categorySelected: null,
     productIdSelected: null,

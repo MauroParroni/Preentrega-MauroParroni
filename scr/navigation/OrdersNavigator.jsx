@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 function OrdersNavigator(){
     return (
-                <Stack.Navigator initialRouteName="Orders" screenOptions={() =>({
+                <Stack.Navigator  screenOptions={() =>({
                     headerShown: false,
                 })}>
                     <Stack.Screen name="Orders" component={Orders}/>

@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import {setUser} from '../../features/auth/authSlice'
 
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPass, setConfirmPass] = useState('')
@@ -38,7 +38,8 @@ const SignUp = () => {
                 <Text>Sign up</Text>
             </Pressable>
             <Text>Already have an account?</Text>
-            <Pressable style ={styles.loginButton}>
+            <Pressable style ={styles.loginButton}  onPress={() => {
+            navigation.navigate('Login')}}>
                 <Text>Login</Text>
             </Pressable>
         </View>

@@ -10,7 +10,7 @@ const MainNavigator = () => {
     const dispatch = useDispatch()
     const {data, error, isLoading} = useGetProfileImageQuery(localId)
     useEffect(() => {
-        console.log(data)
+        //console.log(data)
         if (data){
             dispatch(setCameraImage(data.image))
         }

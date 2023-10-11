@@ -12,7 +12,7 @@ const Login = ({navigation}) => {
     const [password, setPassword] = useState('');
   const [triggerLogin, result ]  = useLoginMutation();
 
-    const onsubmit = () => {
+    const  onsubmit = ()  => {
         triggerLogin({
             email,
             password,

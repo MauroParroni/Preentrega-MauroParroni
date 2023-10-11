@@ -40,7 +40,7 @@ const Profile = ({navigation}) => {
         image,
         localId
       })
-      console.log(result)
+     // console.log(result)
     }
         
     return (

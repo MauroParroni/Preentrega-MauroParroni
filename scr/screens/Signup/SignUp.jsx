@@ -15,11 +15,11 @@ const SignUp = ({navigation}) => {
     const dispatch = useDispatch()
 
     const onSubmit = () => {
-        console.log(email, password, confirmPass)
+        //console.log(email, password, confirmPass)
         triggerSignup({
             email, password
         })
-        console.log(result)
+        //console.log(result)
         if (result.isSuccess){      
                 dispatch(setUser(result))          
             

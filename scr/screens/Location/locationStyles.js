@@ -16,5 +16,8 @@ export default styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
+    },
+    text:{
+        padding: 10,
     }
 })

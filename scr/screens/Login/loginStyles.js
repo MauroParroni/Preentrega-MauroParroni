@@ -3,14 +3,14 @@ import { colors } from "../../Constants/Colors";
  
 export default styles = StyleSheet.create({ 
     container: {
-        backgroundColor: colors.quaternary,
+        backgroundColor: "#E6E6E6",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
     },
     loginContainer:{
-        backgroundColor: colors.quaternary,
+        backgroundColor: "#E6E6E6",
         width: "100%",
         paddingHorizontal: 20,
         justifyContent: "center",
@@ -31,6 +31,10 @@ export default styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: "center",
         justifyContent: "center",
+    },
+    logoImage: {
+        width: "70%",
+        height: "35%",
     }
    
 })

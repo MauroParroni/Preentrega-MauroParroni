@@ -17,13 +17,24 @@ export default styles = StyleSheet.create({
     fontFamily: 'Lobster',
     textAlign: 'center', 
     marginTop: 32,
-    marginRight: 75,
+    marginRight: 25,
+  },
+  textCategory: {
+    flex: 1, 
+    fontSize: 35,
+    color: 'white',
+    fontFamily: 'Lobster',
+    textAlign: 'center', 
+    marginTop: 32,
   },
   backButton: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 10, 
     marginTop: 34,
     color: 'white',
   },
+  logout:{
+    marginTop: 35,
+    marginRight: 15,
+  }
 });

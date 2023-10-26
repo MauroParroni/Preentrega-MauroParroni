@@ -1,49 +1,72 @@
-import { Pressable, TextInput, Text, View } from 'react-native'
-import React  from 'react'
-import styles from './loginStyles'
-import { useLoginMutation } from '../../services/authApi'
-import { useDispatch } from 'react-redux'
-import { setUser } from '../../features/auth/authSlice'
-import { useState } from 'react'
+import { Pressable, TextInput, Text, View, Image } from "react-native";
+import React from "react";
+import styles from "./loginStyles";
+import { useLoginMutation } from "../../services/authApi";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../features/auth/authSlice";
+import { useState } from "react";
+import Logo from "../../assets/Images/Logo.png";
+import { insertSessions } from "../../db";
 
-const Login = ({navigation}) => {
-    const distpath = useDispatch()
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-  const [triggerLogin, result ]  = useLoginMutation();
+// ... importaciones
 
-    const  onsubmit = ()  => {
-        triggerLogin({
-            email,
-            password,
+const Login = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [triggerLogin, result] = useLoginMutation();
+
+  const onSubmit = () => {
+    triggerLogin({
+      email,
+      password,
+    })
+      .unwrap()
+      .then((result) => {
+        dispatch(setUser(result));
+        insertSessions({
+          localId: result.localId,
+          email: result.email,
+          token: result.idToken,
         })
-        if( result.isSuccess){
-            distpath (setUser(result))
-        }
-    }
-
-
+          .then((result) => console.log(result))
+          .catch((err) => console.log(err.message));
+      });
+  };
 
   return (
-    <View style ={styles.container}>
-        <View style ={styles.loginContainer}>
-            <Text>
-                Login to start
-            </Text>
-            <TextInput style ={styles.inputEmail} value={email} onChangeText={setEmail}/>
-            <TextInput style ={styles.inputEmail}  value={password} onChangeText={setPassword}/>
-            <Pressable style ={styles.loginButton} onPress={onsubmit}>
-                <Text>Login</Text>
-            </Pressable>
-            <Text>No have an account?</Text>
-            <Pressable style ={styles.loginButton} onPress={() => {
-            navigation.navigate('Signup')}}>
-                <Text>Sign up</Text>
-            </Pressable>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.loginContainer}>
+        <Image style={styles.logoImage} source={Logo} />
+        <Text>Inicia Sesion</Text>
+        <TextInput
+          style={styles.inputEmail}
+          value={email}
+          onChangeText={setEmail}
+          placeholder="  Correo electrónico"
+        />
+        <TextInput
+          style={styles.inputEmail}
+          value={password}
+          onChangeText={setPassword}
+          placeholder="  Contraseña"
+          secureTextEntry={true}
+        />
+        <Pressable style={styles.loginButton} onPress={onSubmit}>
+          <Text>Login</Text>
+        </Pressable>
+        <Text>No tienes una Cuenta?</Text>
+        <Pressable
+          style={styles.loginButton}
+          onPress={() => {
+            navigation.navigate("Signup");
+          }}
+        >
+          <Text>Registrarse</Text>
+        </Pressable>
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default Login
-
+export default Login;

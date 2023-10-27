@@ -5,7 +5,7 @@ import MainNavigator from "./scr/navigation/MainNavigator";
 import { Provider } from "react-redux";
 import store from "./scr/store";
 import { init } from "./scr/db";
-import Toast from "react-native-toast-message"; // Asegúrate de importar correctamente Toast
+import Toast from "react-native-toast-message";
 
 init()
   .then(() => console.log("Initialized"))

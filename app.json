@@ -3,7 +3,7 @@
     "name": "EcommerceApp",
     "slug": "EcommerceApp",
     "version": "1.0.0",
-    "orientation": "Landscape",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.mauroparroni.EcommerceApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a38069be-2ee9-4685-8c49-52f69753efdf"
+      }
     }
   }
 }

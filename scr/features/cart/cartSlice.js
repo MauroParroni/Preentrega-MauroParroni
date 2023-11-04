@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: "userLogged",
-  updateAt: Date.now().toLocaleString(),
-  items: [],
-  total: 0,
-};
+    user: "userLogged",
+    updateAt: Date.now().toLocaleString(),
+    items: [],
+    total: 0,
+    orders: [], 
+  };
+  
 
 
 export const cartSlice = createSlice({
@@ -36,9 +38,23 @@ export const cartSlice = createSlice({
             state.total = state.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
             state.updateAt = new Date().toLocaleString();
         },
+        createOrder: (state) => {
+            const newOrder = {
+              items: state.items,
+              total: state.total,
+              date: new Date().toLocaleString(),
+            };
+            state.orders.push(newOrder);
+            state.items = [];
+            state.total = 0;
+            state.updateAt = new Date().toLocaleString();
+          },      
+          clearOrders: (state) => {
+            state.orders = [];
+          },
     },
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, createOrder, clearOrders} = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,4 +1,4 @@
-import { Text, View, Image, Pressable } from "react-native";
+import { Text, View, Image, Pressable, Alert } from "react-native";
 import React from "react";
 import styles from "./profileStyles";
 import * as ImagePicker from "expo-image-picker";
@@ -37,11 +37,26 @@ const Profile = ({ navigation }) => {
     }
   };
   const confirmImage = () => {
-    triggerSaveImage({
-      image,
-      localId,
-    });
-    // console.log(result)
+    Alert.alert(
+      "Confirmar",
+      "¿Estás seguro de que deseas guardar esta imagen como tu foto de perfil?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Confirmar",
+          onPress: () => {
+            triggerSaveImage({
+              image,
+              localId,
+            });
+          },
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
